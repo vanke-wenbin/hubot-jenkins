@@ -1,0 +1,7 @@
+#!/bin/bash
+
+set -e
+
+echo "Running bearychat hubot..."
+source ./config-bearychat.sh
+nohup ./bin/hubot -a bearychat 2&1>> hubot.log &
