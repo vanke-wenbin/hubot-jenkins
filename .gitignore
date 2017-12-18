@@ -3,5 +3,6 @@
 
 node_modules
 
+error.log
 hubot.log
 nohup.out

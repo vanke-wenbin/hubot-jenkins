@@ -6,7 +6,7 @@ module.exports =
 
   build: (jobName) ->
     new Promise (resolve, reject) ->
-      request.post "http://#{jenkinsConfig.user}:#{jenkinsConfig.password}@#{jenkinsConfig.url}/job/#{jobName}/build",
+      request.post "http://#{jenkinsConfig.user}:#{jenkinsConfig.password}@#{jenkinsConfig.domain}/job/#{jobName}/build",
       (err, httpResponse, body) ->
         if err
           reject err

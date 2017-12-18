@@ -3,13 +3,13 @@ jenkinsHelper = require './helper/jenkins'
 
 module.exports = (hubot) ->
 
-  hubot.hear /jenkins (.*) commit=([a-z0-9]*)/i, (res) ->
+  hubot.hear /^jenkins (\S+)(\s+commit=(\w+))*/i, (res) ->
     jobName = res.match[1]
-    commit = res.match[2]
+    commit = res.match[3]
 
     res.send "Building #{jobName} with param #{commit}"
 
-    buildPromise = jenkinsHelper.build 'Forrest Gump'
+    buildPromise = jenkinsHelper.build "#{jobName}"
     buildPromise.then (body) -> res.send body,
     (err) -> res.send err
     # res.send JSON.stringify jenkisConfig
